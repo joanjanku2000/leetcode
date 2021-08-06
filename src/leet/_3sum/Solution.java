@@ -8,7 +8,13 @@ import java.util.List;
 import java.util.Map;
 
 public class Solution {
-	
+	/**
+	 * Does the job but breaks at 3000 elements, bad complexity
+	 * TODO improve time complexity
+	 * @author jjanku
+	 * @param nums
+	 * @return
+	 */
 	 public List<List<Integer>> threeSum(int[] nums) {
 	     	
 		 List<List<Integer>> result = new ArrayList<List<Integer>>();
