@@ -59,12 +59,14 @@ public class Solution {
 		  }
 		  return mergedArray;
 	  }
-	  void print(int[] arr) {
+	  public void print(int[] arr) {
 		  System.out.print("\n[");
 		  for (int i : arr) {
 			  System.out.print(" "+ i);
 		  } System.out.println(" ]");
 	  }
+	  
+	 
 	  public static void main(String[] args) {
 		  int[] n1 = {1,2,4};
 		  int[] n2 = {3,5,6};
