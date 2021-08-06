@@ -2,6 +2,11 @@ package leet.merge.sort;
 
 public class Solution {
 /**
+ * August 2021
+ * Merge Sort -> one of the best performing sorts
+ * Complexity:
+ * 		Time -> O(n log n)
+ * 		Space -> O(n)
  * @author jjanku + gfg
  * @param array
  * @param left
