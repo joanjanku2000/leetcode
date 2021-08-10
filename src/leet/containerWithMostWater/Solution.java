@@ -27,18 +27,7 @@ public class Solution {
         int max = calculate(i,j,height[i],height[j]);
         int val = 0;
         while(i<j) {        	
-//        	if (height[i]<height[j])
-//        	while(i<j && height[i]<height[i+1]) {
-//        		val = calculate(i,j,height[i],height[j]);
-//            	if (val>max) max = val;
-//        		i++;
-//        	}
-//        	else
-//        	while (j>i && height[j]<height[j-1]) {
-//        		val = calculate(i,j,height[i],height[j]);
-//        		if (val>max) max = val;
-//        		j--;
-//        	}        	
+       	
         	val = calculate(i,j,height[i],height[j]);
     		if (val>max) max = val;
     		
