@@ -56,7 +56,38 @@ public class Solution {
 	    		}
 	    		 return false;
 	    }
-	    
+	    public List<List<Integer>> threeSumOptimized(int[] nums) {
+	     	
+			 List<List<Integer>> result = new ArrayList<List<Integer>>();
+			 Arrays.sort(nums);
+	         Map<List<Integer>,Boolean> visited = new HashMap<>();
+			 for (int i = 0;i<nums.length;i++) {
+				 int value = -nums[i];
+				 
+				 int j = i + 1;
+				 int k = nums.length - 1;
+				 
+				 while (j<k) {
+					 int sum =  nums[j] + nums[k];
+				
+					 if (value == sum) {
+						 List<Integer> temporary = new ArrayList<>();
+						 temporary.add(nums[i]);
+						 temporary.add(nums[j]);
+						 temporary.add(nums[k]);
+			
+	                     if(visited.get(temporary)==null){
+	                         result.add(temporary);
+	                         visited.put(temporary,true);
+	                     }
+					 }  
+					 if (sum < value) j++;
+					 else k--;
+					if (j>nums.length || k<=0) break;
+					}
+				 }
+			    return result;
+			 }
 	    public static void main(String[] args) {
 	    	int[] arr = {};
 	    	System.out.println(new Solution().threeSum(arr));
