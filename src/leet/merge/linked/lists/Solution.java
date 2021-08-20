@@ -9,43 +9,36 @@ public class Solution {
 	public static ListNode merge2Lists(ListNode n1, ListNode n2) {
 		ListNode it1 = n1;
 		ListNode it2 = n2;
-	
-		ListNode result = null;
-		print(n1);
+	    if (n1 == null ) return n2;
+        if (n2==null) return n1;
+		ListNode result = n1.val<n2.val ? new ListNode(n1.val) : new ListNode(n2.val);
+		ListNode resultRoot = result;
+		
+		if (result.val == n1.val) it1 = it1.next;
+		else it2 = it2.next;
 		while(it1 != null && it2 != null) {
 			
 			if (it1.val<=it2.val) {
-				if (result == null) result = new ListNode(it1.val);
-				else result.next = new ListNode(it1.val);
-				System.out.print(it1);
+				result.next = new ListNode(it1.val) ;
 				it1 = it1.next;			
 			}
 			else {
-			
-				if (result == null) result = it2;
-				else result.next = new ListNode(it2.val);
-				System.out.print(it2);
+				result.next = new ListNode(it2.val);
 				it2 = it2.next;				
 			}
-			//System.out.print(it2);
-			//it2 = it2.next;
 			result = result.next;
 		}
 		
+		
 		if (it1!=null) {
-			System.out.print(it1);
-			result.next = it1;
-			it1=it1.next;
-			//result = result.next;
+				result.next = it1;	
 		}
 		if (it2!=null) {
-			System.out.print(it2);
-			result.next = it2;
-			it2=it2.next;
-			//result = result.next;
+				result.next = it2;
 		}
 
-		return result;
+		
+		return resultRoot;
 	}
 	public static void print(ListNode l) {
 		ListNode iterator = l;
@@ -59,21 +52,21 @@ public class Solution {
 		ListNode l1 = new ListNode(2);
 		l1.next = new ListNode(4);
 		l1.next.next = new ListNode(6);
-		l1.next.next.next = null;
+		//l1.next.next.next = null;
 		
 		ListNode l2 = new ListNode(1);
 		l2.next = new ListNode(3);
 		l2.next.next = new ListNode(5);
-		l2.next.next.next = null;
+	//	l2.next.next.next = null;
 	
-
-		System.out.println(merge2Lists(l1,l2));
+		print(merge2Lists(l1,l2));
+		//System.out.println(merge2Lists(l1,l2));
 	}
 
 }
 
 class ListNode {
-    int val;
+     int val;
      ListNode next;
      ListNode() {}
      ListNode(int val) { this.val = val; }
