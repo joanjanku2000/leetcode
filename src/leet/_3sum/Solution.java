@@ -9,7 +9,8 @@ import java.util.Map;
 
 public class Solution {
 	/**
-	 * Does the job but breaks at 3000 elements, bad complexity
+	 * Does the job but breaks at 3000 elements, bad complexity first method
+	 * great complexity the second one :D 10.08.21 (but extra memory)
 	 * TODO improve time complexity
 	 * @author jjanku
 	 * @param nums
