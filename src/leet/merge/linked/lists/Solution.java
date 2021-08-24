@@ -2,9 +2,18 @@ package leet.merge.linked.lists;
 
 public class Solution {
 
-//	public ListNode mergeKLists(ListNode[] lists) {
-//	        
-//	}
+	public static ListNode mergeKLists(ListNode[] lists) {
+		if (lists.length<=2) {
+			return merge2Lists(lists[0],lists[1]);
+		}
+		
+		ListNode root = merge2Lists(lists[0],lists[1]);
+		
+	        for (int i = 2;i<lists.length;i+=1) {
+	        	root = merge2Lists(root,lists[i]);
+	        }
+	    return root;
+	}
 	
 	public static ListNode merge2Lists(ListNode n1, ListNode n2) {
 		ListNode it1 = n1;
@@ -52,14 +61,32 @@ public class Solution {
 		ListNode l1 = new ListNode(2);
 		l1.next = new ListNode(4);
 		l1.next.next = new ListNode(6);
-		//l1.next.next.next = null;
+	
 		
 		ListNode l2 = new ListNode(1);
 		l2.next = new ListNode(3);
 		l2.next.next = new ListNode(5);
-	//	l2.next.next.next = null;
-	
-		print(merge2Lists(l1,l2));
+
+		
+		ListNode l3 = new ListNode(6);
+		l3.next = new ListNode(9);
+		
+		ListNode l4 = new ListNode(12);
+		l4.next = new ListNode(22);
+		
+		ListNode l5 = new ListNode(18);
+		l3.next = new ListNode(19);
+		l5.next = new ListNode(28);
+		
+		ListNode[] lists = new ListNode[5];
+		
+		
+		lists[0] = l1;
+		lists[1] = l2;
+		lists[2] = l3;
+		lists[3] = l4;
+		lists[4] = l5;
+		print(mergeKLists(lists));
 		//System.out.println(merge2Lists(l1,l2));
 	}
 
