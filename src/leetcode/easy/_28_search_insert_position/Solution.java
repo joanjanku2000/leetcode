@@ -3,9 +3,8 @@ package leetcode.easy._28_search_insert_position;
 /**
  * Doesn't give accurate prediction for values lower than the first one
  * @author Joan
- *
  */
-public class Solution {
+public class Solution { 
 	/**
 	 * Given a sorted array of distinct integers and a target value, 
 	 * return the index if the target is found. If not, return the index 
