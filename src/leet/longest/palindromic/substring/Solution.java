@@ -30,7 +30,7 @@ public class Solution {
 	
 	static char[] characters = new char[256];
 	public String longestPalindromicSubstring(String s) {
-		if (s.isEmpty() || s.isBlank()) return "";
+		if (s.isEmpty()) return "";
 		String lps = s.substring(0,1);
 		StringBuilder st = new StringBuilder();
 		String max = lps;
