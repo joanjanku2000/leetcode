@@ -10,6 +10,12 @@ public class Solution {
         System.out.println("Closest sum is " + new Solution().threeSumClosest(nums, 1));
     }
 
+    /**
+     * High Complexity
+     * @param nums
+     * @param target
+     * @return
+     */
     public int threeSumClosest(int[] nums, int target) {
         int[] distances = new int[nums.length * nums.length * nums.length];
 
