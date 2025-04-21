@@ -1,13 +1,14 @@
 package leet._4sum;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import leet.util.ArrayUtils;
+
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Solution {
     public static void main(String[] args) {
-        int[] nums = {-2,-1,-1,1,1,2,2};
-        System.out.println(fourSum(nums,0));
+        int[] nums = {1000000000,1000000000,1000000000,1000000000};
+        System.out.println(fourSumBetterComplexity(nums,-294967296));
     }
     // to remove duplicates
     public static List<List<Integer>> fourSum(int[] nums, int target) {
@@ -42,4 +43,62 @@ public class Solution {
 
 
     }
+
+    /**
+     * Winner - Complexity O(N^3) better than O(N^4)
+     * @param nums
+     * @param target
+     * @return
+     */
+    public static List<List<Integer>> fourSumBetterComplexity(int[] nums, int target) {
+
+//        List<List<Integer>> quadriplets = new ArrayList<>();
+
+        List<List<Integer>> quadriplets = new ArrayList<>();
+        List<String> tracker = new ArrayList<>();
+        Arrays.sort(nums);
+
+       // ArrayUtils.print(nums);
+
+    //    System.out.println();
+
+        for (int i = 0; i < nums.length - 2; i++){
+           int a = nums[i];
+
+          for (int j = i+1; j < nums.length - 1; j++) {
+              int b =  nums[j];
+
+              int l = j+1;
+              int r = nums.length - 1;
+
+              while (l < r)  {
+                  long sum = (long) a + b + nums[l] + nums[r];
+
+//                  System.out.println(l);
+                  System.out.println( "a = " + a + " b = " + b + " l = " + nums[l]  +  " r = " +nums[r] + " + sum" + sum);
+                  if (target == sum && j != l && j != r) {
+                      List<Integer> toAdd= Arrays.asList(a,b,nums[l],nums[r]);
+                      String key = toAdd.stream().map(String::valueOf).collect(Collectors.joining());
+                     if (!tracker.contains(key)) {
+                         quadriplets.add(toAdd);
+                         tracker.add(key);
+                     }
+
+                      l++;
+                  }
+                  if (sum > target) {
+                      r--;
+                  }
+                  if (sum < target) {
+                      l++;
+                  }
+              }
+          }
+
+        }
+
+        return new ArrayList<>(quadriplets);
+    }
+
+
 }
